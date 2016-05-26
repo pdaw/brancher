@@ -6,6 +6,8 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
     net-ssh (3.1.1)
     power_assert (0.2.6)
     rake (11.1.2)
@@ -21,6 +23,7 @@ PLATFORMS
 
 DEPENDENCIES
   listen (~> 3.1)
+  net-scp (~> 1.2)
   net-ssh (~> 3.1)
   rake (~> 11.1, >= 11.1.2)
   test-unit (~> 3.1)
