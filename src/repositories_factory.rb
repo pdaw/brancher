@@ -1,5 +1,6 @@
 require 'yaml'
 require_relative 'repository'
+require_relative 'host'
 require_relative 'config_not_found'
 require_relative 'config_structure_invalid'
 
@@ -37,9 +38,13 @@ class RepositoriesFactory
       repositories.each do |key, value|
         @repositories.push(
             Repository.new(
-                remotes[key]['host'],
+                Host.new(
+                    remotes[key]['host'],
+                    remotes[key]['port'],
+                    remotes[key]['user'],
+                    remotes[key]['path']
+                ),
                 paths[key],
-                remotes[key]['path'],
                 value['branch']
             )
         )
