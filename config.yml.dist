@@ -1,0 +1,32 @@
+repositories:
+    a-repo-name:
+        branch: develop
+    b-repo-name:
+        branch: story/12345
+    c-repo-name:
+        branch: develop
+
+paths:
+    a-repo-name: absolute-path-to-repo1
+    b-repo-name: absolute-path-to-repo2
+    c-repo-name: absolute-path-to-repo3
+
+remote:
+    a-repo-name:
+        server: 127.0.0.1
+        port: 33022
+        user: pdaw
+        path: /srv/users/pdaw/sites/a-name/current/
+        config: /srv/users/pdaw/sites/a-name/current/config.php
+    b-repo-name:
+        server: 127.0.0.1
+        port: 33022
+        user: pdaw
+        path: /srv/users/pdaw/sites/b-name/current/
+        config: /srv/users/pdaw/sites/b-name/current/config.php
+    c-repo-name:
+        server: 127.0.0.1
+        port: 33022
+        user: pdaw
+        path: /srv/users/pdaw/sites/c-name/current/
+        config: /srv/users/pdaw/sites/c-name/current/config.php
