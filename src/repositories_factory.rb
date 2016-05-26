@@ -45,7 +45,7 @@ class RepositoriesFactory
         )
       end
     rescue NoMethodError
-      raise ConfigStructureInvalid, 'Your config structure is invalid'
+      raise ConfigStructureInvalid
     end
   end
 end
