@@ -12,11 +12,6 @@ paths:
     c-repo-name: absolute-path-to-repo3
 
 remotes:
-    a-repo-name:
-        host: 127.0.0.1
-        port: 33022
-        user: pdaw
-        path: /srv/users/pdaw/sites/a-name/current/
     b-repo-name:
         host: 127.0.0.1
         port: 33022

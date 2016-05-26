@@ -1,0 +1,1 @@
+class ConfigNotFound < StandardError; end

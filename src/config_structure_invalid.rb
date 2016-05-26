@@ -1,0 +1,1 @@
+class ConfigStructureInvalid < StandardError; end
