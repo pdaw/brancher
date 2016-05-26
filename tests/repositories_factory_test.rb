@@ -23,6 +23,4 @@ class RepositoriesFactoryTest < Test::Unit::TestCase
       factory.create
     end
   end
-
-
 end
