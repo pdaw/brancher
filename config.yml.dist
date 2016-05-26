@@ -13,20 +13,17 @@ paths:
 
 remote:
     a-repo-name:
-        server: 127.0.0.1
+        host: 127.0.0.1
         port: 33022
         user: pdaw
         path: /srv/users/pdaw/sites/a-name/current/
-        config: /srv/users/pdaw/sites/a-name/current/config.php
     b-repo-name:
-        server: 127.0.0.1
+        host: 127.0.0.1
         port: 33022
         user: pdaw
         path: /srv/users/pdaw/sites/b-name/current/
-        config: /srv/users/pdaw/sites/b-name/current/config.php
     c-repo-name:
-        server: 127.0.0.1
+        host: 127.0.0.1
         port: 33022
         user: pdaw
         path: /srv/users/pdaw/sites/c-name/current/
-        config: /srv/users/pdaw/sites/c-name/current/config.php
