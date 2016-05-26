@@ -1,6 +1,7 @@
 Simple Ruby pet project created to simplify manual testing of software on many git repositories.
 
 toDo:
+- changing branches based on config
 - monitoring changes of directories
 - sending changes to remote servers via ssh
 - changing configuration file located in remote servers
