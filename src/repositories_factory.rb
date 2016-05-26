@@ -3,13 +3,20 @@ require_relative 'repository'
 require_relative 'config_not_found'
 require_relative 'config_structure_invalid'
 
-class ConfigParser
+class RepositoriesFactory
   attr_accessor :repositories, :config_file_location
 
   def initialize(config_file_location = File.expand_path('../config.yml', File.dirname(__FILE__)))
     @config_file_location = config_file_location
     @repositories = []
   end
+
+  def create
+    parse
+    @repositories
+  end
+
+  private
 
   def parse
     begin
@@ -20,8 +27,6 @@ class ConfigParser
       raise ConfigNotFound, 'You should create ', config_file_location
     end
   end
-
-  private
 
   def parse_repositories
     repositories = @config_file['repositories']
