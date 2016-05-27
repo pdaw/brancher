@@ -1,6 +1,6 @@
 require 'minigit'
 
-class GitCheckout
+class Git
   def checkout_branch(repository)
     @git_client = MiniGit.new(repository.local_path)
     @git_client.fetch
