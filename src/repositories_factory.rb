@@ -33,15 +33,20 @@ class RepositoriesFactory
     repositories = @config_file['repositories']
     paths = @config_file['paths']
     remotes = @config_file['remotes']
+    connections = @config_file['connections']
 
     begin
       repositories.each do |key, value|
+
+        connection_name = remotes[key]['connection']
+
         @repositories.push(
             Repository.new(
                 Host.new(
-                    remotes[key]['host'],
-                    remotes[key]['port'],
-                    remotes[key]['user'],
+                    connections[connection_name]['host'],
+                    connections[connection_name]['port'],
+                    connections[connection_name]['user'],
+                    connections[connection_name]['password'],
                     remotes[key]['path']
                 ),
                 paths[key],
