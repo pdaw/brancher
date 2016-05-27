@@ -2,7 +2,7 @@ require 'net/scp'
 
 class Uploader
   def initialize
-    @files_blacklist = %w(.git . ..)
+    @files_blacklist = %w(.git . .. vendor bin)
   end
 
   def upload(repository)
