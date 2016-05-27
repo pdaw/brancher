@@ -1,5 +1,5 @@
-require_relative('../src/files_synchronization')
+require_relative('../src/env_switch')
 
-synchronization = FilesSynchronization.new
-synchronization.synchronize
+env_switch = EnvSwitch.new
+env_switch.switch
 

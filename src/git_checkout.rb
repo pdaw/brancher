@@ -1,0 +1,2 @@
+class GitCheckout
+end

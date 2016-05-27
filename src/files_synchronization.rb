@@ -6,11 +6,7 @@ class FilesSynchronization
     @uploader = Uploader.new
   end
 
-  def synchronize
-    repositories_factory = RepositoriesFactory.new
-    repositories = repositories_factory.create
-    repositories.each do |repository|
-      @uploader.upload(repository.host, repository.local_path)
-    end
+  def synchronize(repository)
+    @uploader.upload(repository.host, repository.local_path)
   end
 end
