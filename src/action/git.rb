@@ -5,5 +5,6 @@ class Git
     @git_client = MiniGit.new(repository.local_path)
     @git_client.fetch
     @git_client.checkout(repository.branch_name)
+    @git_client.pull
   end
 end
