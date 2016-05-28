@@ -1,3 +1,4 @@
+require 'net/ssh'
 require 'net/scp'
 
 class Uploader
@@ -8,13 +9,19 @@ class Uploader
   def upload(repository)
     host = repository.host
     local_path = repository.local_path
+    commands = repository.commands
 
-    Net::SCP.start(host.server, host.user, :password => host.password, :port => host.port) do |scp|
+    Net::SSH.start(host.server, host.user, :password => host.password, :port => host.port) do |ssh|
+      scp_client = Net::SCP.new(ssh)
       files_to_upload = get_files_to_upload(local_path)
       files_to_upload.each do |file|
-        scp.upload!(local_path + "/#{file}", host.remote_path, :recursive => true) do |ch, name, sent, total|
+        scp_client.upload!(local_path + "/#{file}", host.remote_path, :recursive => true) do |ch, name, sent, total|
           puts "#{name}: #{sent}/#{total}"
         end
+      end
+
+      commands.each do |command|
+        puts ssh.exec!(command)
       end
     end
   end

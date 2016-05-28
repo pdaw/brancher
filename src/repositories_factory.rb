@@ -51,7 +51,8 @@ class RepositoriesFactory
                 ),
                 paths[key],
                 value['branch'],
-                value['blacklist'].split(' ')
+                value['blacklist'].split(' '),
+                value['commands']
             )
         )
       end

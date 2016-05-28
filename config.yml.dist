@@ -2,12 +2,21 @@ repositories:
     a-repo-name:
         branch: develop
         blacklist: .git . .. vendor bin
+        commands:
+            - hostname
+            - pwd
     b-repo-name:
         branch: story/12345
         blacklist: .git . .. vendor bin
+        commands:
+            - hostname
+            - pwd
     c-repo-name:
         branch: develop
         blacklist: .git . .. vendor bin
+        commands:
+            - hostname
+            - pwd
 
 paths:
     a-repo-name: absolute-path-to-repo1
