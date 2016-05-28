@@ -1,10 +1,13 @@
 repositories:
     a-repo-name:
         branch: develop
+        blacklist: .git . .. vendor bin
     b-repo-name:
         branch: story/12345
+        blacklist: .git . .. vendor bin
     c-repo-name:
         branch: develop
+        blacklist: .git . .. vendor bin
 
 paths:
     a-repo-name: absolute-path-to-repo1

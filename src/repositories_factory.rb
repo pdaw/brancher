@@ -50,7 +50,8 @@ class RepositoriesFactory
                     remotes[key]['path']
                 ),
                 paths[key],
-                value['branch']
+                value['branch'],
+                value['blacklist'].split(' ')
             )
         )
       end
