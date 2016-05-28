@@ -22,9 +22,7 @@ class Uploader
   private
 
   def get_files_to_upload(path)
-    files_to_upload = Dir.entries(path).select do |f|
-      File.directory?(f) || File.file?(f)
-    end
+    files_to_upload = Dir.entries(path)
 
     @files_blacklist.each do |file|
       files_to_upload.delete(file)
