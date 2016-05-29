@@ -7,7 +7,6 @@ repositories:
             - pwd
     b-repo-name:
         branch: story/12345
-        blacklist: .git . .. vendor bin
         commands:
             - hostname
             - pwd

@@ -39,6 +39,7 @@ class RepositoriesFactory
       repositories.each do |key, value|
         connection_name = remotes[key]['connection']
         commands = value.key?('commands') ? value['commands'] : nil
+        blacklist = value.key?('blacklist') ? value['blacklist'].split(' ') : nil
 
         @repositories.push(
             Repository.new(
@@ -51,7 +52,7 @@ class RepositoriesFactory
                 ),
                 paths[key],
                 value['branch'],
-                value['blacklist'].split(' '),
+                blacklist,
                 commands
             )
         )

@@ -30,8 +30,10 @@ class Uploader
   def get_files_to_upload(path, blacklist)
     files_to_upload = Dir.entries(path)
 
-    blacklist.each do |file|
-      files_to_upload.delete(file)
+    unless blacklist.nil?
+      blacklist.each do |file|
+        files_to_upload.delete(file)
+      end
     end
 
     files_to_upload
