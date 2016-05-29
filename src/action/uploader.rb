@@ -17,8 +17,10 @@ class Uploader
         end
       end
 
-      commands.each do |command|
-        puts ssh.exec!(command)
+      unless commands.nil?
+        commands.each do |command|
+          puts ssh.exec!(command)
+        end
       end
     end
   end

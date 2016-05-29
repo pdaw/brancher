@@ -14,9 +14,6 @@ repositories:
     c-repo-name:
         branch: develop
         blacklist: .git . .. vendor bin
-        commands:
-            - hostname
-            - pwd
 
 paths:
     a-repo-name: absolute-path-to-repo1
