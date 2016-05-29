@@ -43,6 +43,7 @@ class RepositoriesFactory
 
         @repositories.push(
             Repository.new(
+                key,
                 Host.new(
                     connections[connection_name]['host'],
                     connections[connection_name]['port'],

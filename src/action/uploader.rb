@@ -21,6 +21,7 @@ class Uploader
       total_files += Dir.entries(local_path).count { |f| File.file?(f) }
       progressbar = ProgressBar.create(:title => 'Upload progress', :total => total_files)
 
+      puts '************************** Uploading: **************************'
       files_to_upload.each do |file|
         scp_client.upload!(local_path + "/#{file}", host.remote_path, :recursive => true) do |ch, name, sent, total|
           if sent == total
@@ -28,11 +29,14 @@ class Uploader
           end
         end
       end
+      puts 'Uploading finished'
 
       unless commands.nil?
+        puts '************************** Remote commands: **************************'
         commands.each do |command|
-          puts ssh.exec!(command)
+          puts "Command #{command}: " + ssh.exec!(command)
         end
+        puts 'Remote commands finished'
       end
     end
   end

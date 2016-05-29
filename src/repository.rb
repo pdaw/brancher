@@ -1,7 +1,8 @@
 class Repository
-  attr_accessor :host, :local_path, :branch_name, :blacklist, :commands
+  attr_accessor :name, :host, :local_path, :branch_name, :blacklist, :commands
 
-  def initialize(host, local_path, branch_name, blacklist = nil, commands = nil)
+  def initialize(name, host, local_path, branch_name, blacklist = nil, commands = nil)
+    @name = name
     @host = host
     @local_path = local_path
     @branch_name = branch_name

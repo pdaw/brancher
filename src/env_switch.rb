@@ -11,9 +11,15 @@ class EnvSwitch
   def switch
     repositories_factory = RepositoriesFactory.new
     repositories = repositories_factory.create
+
+
     repositories.each do |repository|
+      puts "================== Starting #{repository.name} =================="
+
       @git_client.checkout_branch(repository)
       @uploader.upload(repository)
+
+      puts "Finished #{repository.name}"
     end
   end
 end
