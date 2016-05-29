@@ -19,9 +19,9 @@ repositories:
             - pwd
 
 paths:
-    a-repo-name: absolute-path-to-repo1
-    b-repo-name: absolute-path-to-repo2
-    c-repo-name: absolute-path-to-repo3
+    a-repo-name: /srv/users/pdaw/repositories/a
+    b-repo-name: /srv/users/pdaw/repositories/b
+    c-repo-name: /srv/users/pdaw/repositories/c
 
 connections:
     con1:

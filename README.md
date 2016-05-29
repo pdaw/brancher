@@ -1,8 +1,8 @@
 Simple Ruby pet project created to simplify manual testing of software on many git repositories for my team :)
 
 #### Functionalities:
-- Checking out branches for many repositories (pull if you already are)
-- Upload of files (except blacklisted, for example vendor)
+- Checking out branches of many repositories (pull if you already are)
+- Uploading files (except blacklisted, for example vendor)
 - Invoking remote commands (for example in order to cleaning cache)
 
 #### Dependencies:
