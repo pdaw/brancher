@@ -41,6 +41,10 @@ class RepositoriesFactory
         commands = value.key?('commands') ? value['commands'] : nil
         blacklist = value.key?('blacklist') ? value['blacklist'].split(' ') : nil
 
+        unless paths.key?(key)
+          raise ConfigStructureInvalid
+        end
+
         @repositories.push(
             Repository.new(
                 key,

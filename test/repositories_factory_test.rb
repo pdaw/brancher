@@ -17,9 +17,23 @@ class RepositoriesFactoryTest < Test::Unit::TestCase
     end
   end
 
-  def test_throw_error_for_invalid_config_file
+  def test_throw_error_for_invalid_config_file_without_remote
     assert_raise ConfigStructureInvalid do
-      factory = RepositoriesFactory.new(File.dirname(__FILE__) + '/stub.incorrect_config.yml')
+      factory = RepositoriesFactory.new(File.dirname(__FILE__) + '/stub.incorrect_config_without_remote.yml')
+      factory.create
+    end
+    end
+
+  def test_throw_error_for_invalid_config_file_without_path
+    assert_raise ConfigStructureInvalid do
+      factory = RepositoriesFactory.new(File.dirname(__FILE__) + '/stub.incorrect_config_without_path.yml')
+      factory.create
+    end
+    end
+
+  def test_throw_error_for_invalid_config_file_without_connection
+    assert_raise ConfigStructureInvalid do
+      factory = RepositoriesFactory.new(File.dirname(__FILE__) + '/stub.incorrect_config_without_connection.yml')
       factory.create
     end
   end

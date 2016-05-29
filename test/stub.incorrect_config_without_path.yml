@@ -1,0 +1,29 @@
+repositories:
+    a-repo-name:
+        branch: develop
+    b-repo-name:
+        branch: story/12345
+    c-repo-name:
+        branch: develop
+
+paths:
+    b-repo-name: absolute-path-to-repo2
+    c-repo-name: absolute-path-to-repo3
+
+connections:
+    con1:
+        host: 127.0.0.1
+        port: 33022
+        user: pdaw
+        password: pass
+
+remotes:
+    a-repo-name:
+        connection: con1
+        path: /srv/users/pdaw/sites/a-name/current/
+    b-repo-name:
+        connection: con1
+        path: /srv/users/pdaw/sites/b-name/current/
+    c-repo-name:
+        connection: con1
+        path: /srv/users/pdaw/sites/c-name/current/
