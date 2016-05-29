@@ -14,7 +14,7 @@ class EnvSwitch
 
 
     repositories.each do |repository|
-      puts "================== Starting #{repository.name} =================="
+      puts "\n ================== Starting #{repository.name} =================="
 
       @git_client.checkout_branch(repository)
       @uploader.upload(repository)

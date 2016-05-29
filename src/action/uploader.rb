@@ -10,34 +10,8 @@ class Uploader
     blacklist = repository.blacklist
 
     Net::SSH.start(host.server, host.user, :password => host.password, :port => host.port) do |ssh|
-      scp_client = Net::SCP.new(ssh)
-      files_to_upload = get_files_to_upload(local_path, blacklist)
-
-      total_files = 0
-      files_to_upload.each do |file|
-        total_files += Dir[File.join(local_path + "/#{file}", '**', '*')].count { |f| File.file?(f) }
-      end
-
-      total_files += Dir.entries(local_path).count { |f| File.file?(f) }
-      progressbar = ProgressBar.create(:title => 'Upload progress', :total => total_files)
-
-      puts '************************** Uploading: **************************'
-      files_to_upload.each do |file|
-        scp_client.upload!(local_path + "/#{file}", host.remote_path, :recursive => true) do |ch, name, sent, total|
-          if sent == total
-            progressbar.increment
-          end
-        end
-      end
-      puts 'Uploading finished'
-
-      unless commands.nil?
-        puts '************************** Remote commands: **************************'
-        commands.each do |command|
-          puts "Command #{command}: " + ssh.exec!(command)
-        end
-        puts 'Remote commands finished'
-      end
+      upload_files(ssh, host, local_path, blacklist)
+      invoke_commands(ssh, commands)
     end
   end
 
@@ -53,5 +27,40 @@ class Uploader
     end
 
     files_to_upload
+  end
+
+  def upload_files(ssh, host, local_path, blacklist)
+    scp_client = Net::SCP.new(ssh)
+    files_to_upload = get_files_to_upload(local_path, blacklist)
+
+    total_files = 0
+    files_to_upload.each do |file|
+      total_files += Dir[File.join(local_path + "/#{file}", '**', '*')].count { |f| File.file?(f) }
+    end
+
+    total_files += Dir.entries(local_path).count { |f| File.file?(f) }
+    progressbar = ProgressBar.create(:title => 'Upload progress', :total => total_files, :format => '%w')
+
+    puts '** Uploading: **'
+
+    files_to_upload.each do |file|
+      scp_client.upload!(local_path + "/#{file}", host.remote_path, :recursive => true) do |ch, name, sent, total|
+        if sent == total
+          progressbar.increment
+        end
+      end
+    end
+
+    puts 'Uploading finished'
+  end
+
+  def invoke_commands(ssh, commands)
+    unless commands.nil?
+      puts '** Remote commands: **'
+      commands.each do |command|
+        puts "Command #{command}: " + ssh.exec!(command)
+      end
+      puts 'Remote commands finished'
+    end
   end
 end
