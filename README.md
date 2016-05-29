@@ -1,5 +1,10 @@
 Simple Ruby pet project created to simplify manual testing of software on many git repositories in my team :)
 
+#### Functionalities:
+- Checking out branch (pull if you already are)
+- Upload of files (except blacklisted, for example vendor)
+- Invoking remote commands (for example in order to cleaning cache)
+
 #### Dependencies:
 - [Ruby 2.3 + RubyGems](http://rubyinstaller.org/downloads/)
 - [Git](https://git-scm.com/downloads)
