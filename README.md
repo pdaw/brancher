@@ -2,6 +2,7 @@ Simple Ruby pet project created to simplify manual testing of software on many g
 
 #### Dependencies:
 - [Ruby 2.3 + RubyGems](http://rubyinstaller.org/downloads/)
+- [Git](https://git-scm.com/downloads)
 
 #### Installation:
 - enter `gem install bundler` to install [bundler](http://bundler.io/)
