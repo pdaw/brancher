@@ -1,19 +1,19 @@
 repositories:
     a-repo-name:
         branch: develop
-        blacklist: .git . .. vendor bin
+        blacklist: .git . .. vendor bin .idea
         commands:
             - hostname
             - pwd
     b-repo-name:
         branch: story/12345
-        blacklist: .git . .. vendor bin
+        blacklist: .git . .. vendor bin .idea
         commands:
             - hostname
             - pwd
     c-repo-name:
         branch: develop
-        blacklist: .git . .. vendor bin
+        blacklist: .git . .. vendor bin .idea
         commands:
             - hostname
             - pwd
