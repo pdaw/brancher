@@ -38,14 +38,14 @@ class Uploader
       total_files += Dir[File.join(local_path + "/#{file}", '**', '*')].count { |f| File.file?(f) }
     end
 
-    total_files += Dir.entries(local_path).count { |f| File.file?(f) }
+    total_files += Dir.entries(local_path).count { |f| File.file?("#{local_path}/#{f}") }
     progressbar = ProgressBar.create(:title => 'Upload progress', :total => total_files, :format => '%w')
 
     puts '** Uploading: **'
 
     files_to_upload.each do |file|
       scp_client.upload!(local_path + "/#{file}", host.remote_path, :recursive => true) do |ch, name, sent, total|
-        if sent == total
+        if sent == total && !progressbar.finished?
           progressbar.increment
         end
       end
