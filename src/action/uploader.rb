@@ -9,7 +9,7 @@ class Uploader
     commands = repository.commands
     blacklist = repository.blacklist
 
-    Net::SSH.start(host.server, host.user, :password => host.password, :port => host.port, :passphrase => host.password) do |ssh|
+    Net::SSH.start(host.server, host.user, :passphrase => host.password, :auth_methods => ['publickey'], :non_interactive => true, :port => host.port) do |ssh|
       upload_files(ssh, host, local_path, blacklist)
       invoke_commands(ssh, commands)
     end
